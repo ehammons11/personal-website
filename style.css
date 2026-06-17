@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'Gossip-MedPixel';
+  src: url('fonts/Gossip-MedPixel.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-image: url('media/stars.gif');
+  background-repeat: repeat;
+  background-size: auto;
+  image-rendering: pixelated;
+  font-family: 'Space Mono', monospace;
+  color: #f0f0f0;
+}
+
+h1, h2, h3 {
+  font-family: 'Gossip-MedPixel', serif;
+}
+
+#archive-solid, #github, #arena, #info-circle {
+  transition: fill 0.15s ease;
+}
+
+#archive-solid:hover, #github:hover, #arena:hover, #info-circle:hover {
+  fill: #87ceeb; /* sky blue */
+}
+
+/* info icon is a bare button wrapping the svg */
+#info-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  cursor: pointer;
+}
+
+/* font-credit popover */
+#font-credit {
+  margin: auto; /* center in the viewport */
+  background: #0a0a18;
+  color: #f0f0f0;
+  border: 2px solid #87ceeb;
+  box-shadow: 4px 4px 0 #000; /* hard pixel shadow */
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 16px 20px;
+  max-width: 260px;
+
+  /* scale-in animation */
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    overlay 0.15s ease allow-discrete,
+    display 0.15s ease allow-discrete;
+}
+
+#font-credit:popover-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  #font-credit:popover-open {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+#font-credit a {
+  color: #87ceeb;
+}
+
+#font-credit::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
